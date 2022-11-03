@@ -22,17 +22,154 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-          backgroundColor: const Color(0xFF06121C),
+          backgroundColor: const Color(0xFF261041),
+            body: Column(
+              children: [
+                Headline(),
+                Headlinetwo(),
+                Headlinethree(),
+                ShapesCard()
+              ],
+            ),
           appBar: AppBar(
             backgroundColor: const Color(0xFF08252C),
-            title: const Text('CTL - Controllable Laser Turret',
-                style: TextStyle()),
-            titleSpacing: 57,
+
           ),
           drawer: NavigationDrawer(),
         ));
   }
 }
+
+class Headline extends StatelessWidget {
+  const Headline({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 45,
+      child: Center(
+        child: Text('C.L.T' , textAlign: TextAlign.center, style: GoogleFonts.inriaSans(
+            textStyle:
+            const TextStyle(color: Colors.white, fontSize: 30,fontWeight: FontWeight.bold)),
+        ),
+      )
+
+    );
+  }
+}
+
+class Headlinetwo extends StatelessWidget {
+  const Headlinetwo({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: 45,
+        child: Center(
+          child: Text('Controllable Laser Turret' , textAlign: TextAlign.center, style: GoogleFonts.inriaSans(
+              textStyle:
+              const TextStyle(color: Colors.white, fontSize: 30,fontWeight: FontWeight.bold)),
+          ),
+        )
+
+    );
+  }
+}
+
+class Headlinethree extends StatelessWidget {
+  const Headlinethree({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+       children: [
+         Container(
+           margin: const EdgeInsets.only(top: 30.0),
+           child: Text('A Project by ' , textAlign: TextAlign.center, style: GoogleFonts.inriaSans(
+               textStyle:
+               const TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold)),
+           ),
+
+         ),
+         Container(
+
+           child: Text('Sebastian Peternuss &' , textAlign: TextAlign.center, style: GoogleFonts.inriaSans(
+               textStyle:
+               const TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold)),
+           ),
+
+         ),
+         Container(
+
+           child: Text('Tony Monsberger' , textAlign: TextAlign.center, style: GoogleFonts.inriaSans(
+               textStyle:
+               const TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold)),
+           ),
+
+         ),
+       ],
+    );
+  }
+}
+
+class ShapesCard extends StatefulWidget {
+  const ShapesCard({Key? key}) : super(key: key);
+
+  @override
+  State<ShapesCard> createState() => _ShapesCardState();
+}
+
+class _ShapesCardState extends State<ShapesCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 175,
+      width: 156,
+      child: Card(
+        shadowColor: Colors.black,
+        elevation: 10,
+        color: const Color(0xB3150825),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(25)
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children:  <Widget>[
+              Center(
+                child:Container(
+                width: 85,
+                height: 85,
+                  child: Card(
+                    color: Color(0xFF5B22A5),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100)
+                    ),
+
+
+                    child: ListTile(
+                      leading: Icon(
+                        Icons.home,
+                        color: Colors.white,
+                        size: 50,
+                      ),
+                    ),
+                  )
+              ),
+              )
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
