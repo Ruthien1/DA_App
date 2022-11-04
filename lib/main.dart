@@ -23,17 +23,38 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
           backgroundColor: const Color(0xFF261041),
-            body: Column(
-              children: [
-                Headline(),
-                Headlinetwo(),
-                Headlinethree(),
-                ShapesCard()
-              ],
-            ),
+          body: Container(
+              child: Column(
+            children: [
+              Headline(),
+              Headlinetwo(),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 30),
+                child: Headlinethree(),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  ShapesCard(),
+                  DrawYourselfCard(),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                SelfDrawnShapesCard()
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  AboutUsCard()
+                ],
+                ),
+            ],
+          )),
           appBar: AppBar(
             backgroundColor: const Color(0xFF08252C),
-
           ),
           drawer: NavigationDrawer(),
         ));
@@ -46,15 +67,17 @@ class Headline extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 45,
-      child: Center(
-        child: Text('C.L.T' , textAlign: TextAlign.center, style: GoogleFonts.inriaSans(
-            textStyle:
-            const TextStyle(color: Colors.white, fontSize: 30,fontWeight: FontWeight.bold)),
-        ),
-      )
-
-    );
+        child: Center(
+      child: Text(
+        'C.L.T',
+        textAlign: TextAlign.center,
+        style: GoogleFonts.inriaSans(
+            textStyle: const TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold)),
+      ),
+    ));
   }
 }
 
@@ -64,15 +87,17 @@ class Headlinetwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 45,
         child: Center(
-          child: Text('Controllable Laser Turret' , textAlign: TextAlign.center, style: GoogleFonts.inriaSans(
-              textStyle:
-              const TextStyle(color: Colors.white, fontSize: 30,fontWeight: FontWeight.bold)),
-          ),
-        )
-
-    );
+      child: Text(
+        'Controllable Laser Turret',
+        textAlign: TextAlign.center,
+        style: GoogleFonts.inriaSans(
+            textStyle: const TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold)),
+      ),
+    ));
   }
 }
 
@@ -82,32 +107,42 @@ class Headlinethree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-       children: [
-         Container(
-           margin: const EdgeInsets.only(top: 30.0),
-           child: Text('A Project by ' , textAlign: TextAlign.center, style: GoogleFonts.inriaSans(
-               textStyle:
-               const TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold)),
-           ),
-
-         ),
-         Container(
-
-           child: Text('Sebastian Peternuss &' , textAlign: TextAlign.center, style: GoogleFonts.inriaSans(
-               textStyle:
-               const TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold)),
-           ),
-
-         ),
-         Container(
-
-           child: Text('Tony Monsberger' , textAlign: TextAlign.center, style: GoogleFonts.inriaSans(
-               textStyle:
-               const TextStyle(color: Colors.white, fontSize: 20,fontWeight: FontWeight.bold)),
-           ),
-
-         ),
-       ],
+      children: [
+        Container(
+          margin: const EdgeInsets.only(top: 30.0),
+          child: Text(
+            'A Project by ',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inriaSans(
+                textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
+          ),
+        ),
+        Container(
+          child: Text(
+            'Sebastian Peternuss &',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inriaSans(
+                textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
+          ),
+        ),
+        Container(
+          child: Text(
+            'Tony Monsberger',
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inriaSans(
+                textStyle: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -123,42 +158,46 @@ class _ShapesCardState extends State<ShapesCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 175,
       width: 156,
+      height: 175,
       child: Card(
         shadowColor: Colors.black,
         elevation: 10,
         color: const Color(0xB3150825),
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25)
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         child: Padding(
           padding: EdgeInsets.all(10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children:  <Widget>[
+            children: <Widget>[
               Center(
-                child:Container(
-                width: 85,
-                height: 85,
-                  child: Card(
+                  child: Container(
+                width: 117,
+                height: 131,
+                child: Card(
                     color: Color(0xFF5B22A5),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(100)
-                    ),
-
-
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.home,
-                        color: Colors.white,
-                        size: 50,
-                      ),
-                    ),
-                  )
-              ),
-              )
-
+                        borderRadius: BorderRadius.circular(25)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        const Icon(
+                          Icons.format_shapes,
+                          color: Colors.white,
+                          size: 50,
+                        ),
+                        Text(
+                          'Shapes',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.inriaSans(
+                              textStyle: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold)),
+                        ),
+                      ],
+                    )),
+              )),
             ],
           ),
         ),
@@ -167,9 +206,182 @@ class _ShapesCardState extends State<ShapesCard> {
   }
 }
 
+class DrawYourselfCard extends StatefulWidget {
+  const DrawYourselfCard({Key? key}) : super(key: key);
 
+  @override
+  State<DrawYourselfCard> createState() => _DrawYourselfCardState();
+}
 
+class _DrawYourselfCardState extends State<DrawYourselfCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 156,
+      height: 175,
+      child: Card(
+        shadowColor: Colors.black,
+        elevation: 10,
+        color: const Color(0xB3150825),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Center(
+                  child: Container(
+                width: 117,
+                height: 131,
+                child: Card(
+                    color: Color(0xFF5B22A5),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        const Icon(
+                          Icons.draw,
+                          color: Colors.white,
+                          size: 50,
+                        ),
+                        Text(
+                          'Draw Yourself',
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.inriaSans(
+                              textStyle: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold)),
+                        ),
+                      ],
+                    )),
+              )),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
+class SelfDrawnShapesCard extends StatefulWidget {
+  const SelfDrawnShapesCard({Key? key}) : super(key: key);
+
+  @override
+  State<SelfDrawnShapesCard> createState() => _SelfDrawnShapesCardState();
+}
+
+class _SelfDrawnShapesCardState extends State<SelfDrawnShapesCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 315,
+      height: 122,
+      child: Card(
+        shadowColor: Colors.black,
+        elevation: 10,
+        color: const Color(0xB3150825),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Center(
+                  child: Container(
+                    width: 258,
+                    height: 90,
+                    child: Card(
+                        color: Color(0xFF5B22A5),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            const Icon(
+                              Icons.image,
+                              color: Colors.white,
+                              size: 50,
+                            ),
+                            Text(
+                              'Shapes',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.inriaSans(
+                                  textStyle: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                          ],
+                        )),
+                  )),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class AboutUsCard extends StatefulWidget {
+  const AboutUsCard({Key? key}) : super(key: key);
+
+  @override
+  State<AboutUsCard> createState() => _AboutUsCardState();
+}
+
+class _AboutUsCardState extends State<AboutUsCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 315,
+      height: 122,
+      child: Card(
+        shadowColor: Colors.black,
+        elevation: 10,
+        color: const Color(0xB3150825),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+        child: Padding(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Center(
+                  child: Container(
+                    width: 258,
+                    height: 90,
+                    child: Card(
+                        color: Color(0xFF5B22A5),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            const Icon(
+                              Icons.person,
+                              color: Colors.white,
+                              size: 50,
+                            ),
+                            Text(
+                              'About Us',
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.inriaSans(
+                                  textStyle: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                          ],
+                        )),
+                  )),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 class NavigationDrawer extends StatelessWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
